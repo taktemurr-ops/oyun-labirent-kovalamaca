@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kovalamaca.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const labirentId = 'oyun-labirent-kovalamaca';
 
@@ -88,7 +87,7 @@ final labirentConfig = GameConfig(
   rules: labirentRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => labirentRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => labirentRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintMaze(c, s, p, t);
